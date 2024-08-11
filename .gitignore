@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environment
+venv/
+myenv/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Compiled binary files
+*.dll
+*.so
+*.dylib
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# IDE/Editor directories
+.vscode/
+.idea/
+
+# Build directories
+build/
+dist/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Packaging files
+*.egg
+*.egg-info/
+dist/
+
+main.py
