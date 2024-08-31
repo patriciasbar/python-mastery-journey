@@ -1,23 +1,33 @@
 from random import randint
 
-secret = randint(0,10)
-tries = 0
+def generate_secret(f=1, t=10):
+    try:
+        return randint(f,t)
+    except (ValueError) as e:
+        raise ValueError (f"Please inform a positive integer number. {e}")
+    except Exception as e:
+        raise Exception (f"Something else has happened. {e}")
 
-while True:
-    try: 
-        guess = int(input('Guess a number from 0 to 10: '))
-        print(secret)
-        if guess == secret:
-            print(f"Correct! Secret number is {secret}! You've tried {tries} times!")
+
+def is_valid_number(g):
+    try:
+        guess = int(g)
+        if guess < 0 or guess > 10:
+            raise ValueError (f"Please inform a number from 0 to 10!!")
+    except ValueError as e:
+        raise ValueError (f"Please inform a positive integer number. {e}")
+
+
+def guess_game():
+    secret = generate_secret()
+    while True:
+        guess = input('Guess a number from 0 to 10: ')
+        is_valid_number(guess)
+        if int(guess) == secret:
+            print(f"You are a genius! Secret number is {secret}!")
             break
-        elif 0 > guess > 11:
-            print(f"Please inform a number from 0 to 10!!")
-            tries += 1
-            continue
         else:
-            tries += 1
-            continue
-    except ValueError:
-        print(f"Please raise a valid number!")
-        
-
+            print(f"That was close! let's try it again...")
+     
+if __name__ == "__main__":
+     guess_game()
